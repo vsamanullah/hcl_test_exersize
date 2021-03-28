@@ -39,3 +39,9 @@ steps:
 - script: |
       cd phil_rice_datakata/tst && python foot_ball_team_test.py
   
+  
+ # Running test for hcl web tests
+- script: |
+      #cd hcl_portal && python RunTestSuite.py
+      echo %ChromeWebDriver% 
+  
