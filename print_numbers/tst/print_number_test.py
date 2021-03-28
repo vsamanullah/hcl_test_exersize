@@ -37,8 +37,8 @@ class Test_Print_Numbers(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
-    test_data_true = "1,2,3,4,5,6,7,8,9,10" # test data for valid cases
-    test_data_false = "2,3,4,5,6,7,8,9,10"  # test data for invalid cases
+    test_data_true = "1,2,3,4,5,6,7,8,10" # test data for valid cases
+    test_data_false = "1,2,3,4,5,6,7,8,9,10"  # test data for invalid cases
     # Test for valid case
     suite.addTest(Test_Print_Numbers("test_print_numbers_true",test_data_true))
     # Test for valid case
