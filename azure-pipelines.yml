@@ -49,26 +49,10 @@ steps:
       cd hcl_portal && python RunTestSuite.py
   displayName: 'Running test for hcl web tests'
 
-- task: PublishTestResults@1
+- task: PublishTestResults@2
     inputs:
       testResultsFiles: 'hcl_portal/TestReport/*.html'
       testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version)'
     condition: succeededOrFailed()
 
-- task: PublishTestResults@2
-    inputs:
-      testResultsFiles: 'phil_rice_datakata/tst/tst_report/*.html'
-      testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version) - phil_rice_datakata'
-    condition: succeededOrFailed()
 
-- task: PublishTestResults@3
-    inputs:
-      testResultsFiles: 'area_of_traingle/tst/tst_report/*.html'
-      testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version) - area_of_traingle'
-    condition: succeededOrFailed()
-
-- task: PublishTestResults@4
-    inputs:
-      testResultsFiles: 'print_numbers/tst/tst_report/*.html'
-      testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version) - area_of_traingle'
-    condition: succeededOrFailed()
