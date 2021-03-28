@@ -30,19 +30,22 @@ steps:
  # Running test for print numbers
 - script: |
       cd print_numbers/tst && python print_number_test.py
+  displayName: 'Running test for print numbers'   
 
- # Running test for area of traingle
+# Running test for area of traingle
 - script: |
       cd area_of_traingle/tst && python area_of_traingle_test.py
+  displayName: 'Running test for area of traingle'
  
   # Running test for https://github.com/phil-rice/datakata.git
 - script: |
       cd phil_rice_datakata/tst && python foot_ball_team_test.py
-  
-  
+  displayName: 'Running test for phil-rice/datakata'
+    
  # Running test for hcl web tests
 - script: |      
       cp "%ChromeWebDriver%"/chromedriver.exe hcl_portal/WebDrivers/
       cd hcl_portal && python RunTestSuite.py
+  displayName: 'Running test for hcl web tests'
       
       
