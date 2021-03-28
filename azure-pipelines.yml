@@ -32,9 +32,9 @@ steps:
 
  # Running test for area of traingle
 - script: |
-      cd area_of_traingle/tst && area_of_traingle_test.py
+      cd area_of_traingle/tst && python area_of_traingle_test.py
  
   # Running test for https://github.com/phil-rice/datakata.git
 - script: |
-      cd phil_rice_datakata/tst && foot_ball_team_test.py
+      cd phil_rice_datakata/tst && python foot_ball_team_test.py
   
