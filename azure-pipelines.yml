@@ -23,7 +23,7 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install response
-    pip install selenuim
+    pip install selenium 
   displayName: 'Install dependencies'
 
 
