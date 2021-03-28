@@ -25,5 +25,8 @@ steps:
     pip install response
     pip install selenium 
   displayName: 'Install dependencies'
+  
+- script: |
+      cd print_numbers/tst && python print_number_test.py
 
 
