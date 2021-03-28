@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import argparse
 import unittest
+import HtmlTestRunner
 import inspect
 
 
@@ -58,12 +59,15 @@ def perform_intial_set_up():
 
 
 class MySeleniumTests(unittest.TestCase):
+    def __init__(self, methodName='', browser=None , SnapShotDir=None ):
+        super(MySeleniumTests, self).__init__(methodName)
+        self.browser = browser
+        self.SnapShotDir = SnapShotDir
 
     # setup : initialize the selenium webdriver for the given browser
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        browser, cls.tstRepDir, cls.SnapShotDir = perform_intial_set_up()
         cls.driver_web = CoreLibraries.WebDriver.InitializeDriver(browser)
 
     # teardown : close the session once the test is done
@@ -94,13 +98,16 @@ class MySeleniumTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    browser, tstRepDir, SnapShotDir = perform_intial_set_up()
     suite = unittest.TestSuite()
-    suite.addTest(MySeleniumTests("test_board_of_member"))
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+    suite.addTest(MySeleniumTests("test_board_of_member",browser,SnapShotDir))
+    html_runner = HtmlTestRunner.HTMLTestRunner(
+        verbosity=2, output=tstRepDir,
+        report_title='web test report',
+        descriptions='web test report'
+    )
+    html_runner.run(suite)
 
-
-    
 
 
     

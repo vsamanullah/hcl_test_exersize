@@ -5,6 +5,7 @@ import os
 import io
 from contextlib import redirect_stdout
 import inspect
+import HtmlTestRunner
 
 # adding user import paths
 program_path = os.path.dirname(os.path.abspath(__file__))
@@ -60,5 +61,10 @@ if __name__ == '__main__':
     # test with duplicate data
     suite.addTest(Test_Football_Team_data("test_foot_team_with_least_goal_diff", test_input_data.test_with_duplicate_data[0], test_input_data.test_with_duplicate_data[1]))
 
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+    tstRepDir = os.path.join(program_path, "tst_report")
+    html_runner = HtmlTestRunner.HTMLTestRunner(
+        verbosity=2, output=tstRepDir,
+        report_title='Test report',
+        descriptions='Test report'
+    )
+    html_runner.run(suite)

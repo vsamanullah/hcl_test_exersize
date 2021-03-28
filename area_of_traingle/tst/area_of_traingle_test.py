@@ -3,7 +3,7 @@ import unittest
 import sys
 import os
 import inspect
-from contextlib import redirect_stdout
+import HtmlTestRunner
 
 # adding user import paths
 program_path = os.path.dirname(os.path.abspath(__file__))
@@ -65,5 +65,10 @@ if __name__ == '__main__':
     suite.addTest(Test_Area_Of_Traingle("test_area_of_traingle_function_valid_case", 100, 50, 25.5, 15793.54159))
     suite.addTest(Test_Area_Of_Traingle("test_area_of_traingle_function_valid_case", 100.5, 50.75, 25.5, 16026.27532))
 
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+    tstRepDir = os.path.join(program_path, "tst_report")
+    html_runner = HtmlTestRunner.HTMLTestRunner(
+        verbosity=2, output=tstRepDir,
+        report_title='Test report',
+        descriptions='Test report'
+    )
+    html_runner.run(suite)

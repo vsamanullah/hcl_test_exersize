@@ -5,6 +5,7 @@ import os
 import io
 from contextlib import redirect_stdout
 import inspect
+import HtmlTestRunner
 
 # adding user import paths
 program_path = os.path.dirname(os.path.abspath(__file__))
@@ -49,5 +50,11 @@ if __name__ == '__main__':
     suite.addTest(Test_Print_Numbers("test_print_numbers_true",test_data_true))
     # Test for valid case
     suite.addTest(Test_Print_Numbers("test_print_numbers_false", test_data_false))
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+    tstRepDir = os.path.join(program_path, "tst_report")
+
+    html_runner = HtmlTestRunner.HTMLTestRunner(
+        verbosity=2, output=tstRepDir,
+        report_title='Test report',
+        descriptions='Test report'
+    )
+    html_runner.run(suite)
