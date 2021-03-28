@@ -87,7 +87,11 @@ class MySeleniumTests(unittest.TestCase):
         # down load the image of board member
         image_src_path = LP.retrive_image_url_of_the_board_directors(found_element, TST_SET.shiv_nadar_str)
         image_file_name = URL_UT.get_file_name_from_url(image_src_path)
-        URL_UT.save_file_from_url(image_src_path, str(Path(self.SnapShotDir) / image_file_name))
+        image_save_path = str(Path(self.SnapShotDir) / image_file_name)
+        print("downloading the file %s from the URL %s to local directory %s" %(image_file_name,image_src_path,image_save_path) )
+        URL_UT.save_file_from_url(image_src_path,image_save_path )
+        print("Image downloaded successfully and test passed")
+
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
