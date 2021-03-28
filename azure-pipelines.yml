@@ -50,9 +50,8 @@ steps:
   displayName: 'Running test for hcl web tests'
 
 - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: 'hcl_portal/TestReport/*.html'
-      testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version)'
-    condition: succeededOrFailed()
-
+  inputs:
+    testResultsFiles: 'hcl_portal/TestReport/*.html'
+    testRunTitle: '$(Agent.OS) - $(Build.DefinitionName) - Python $(python.version)'
+  condition: succeededOrFailed()
 
