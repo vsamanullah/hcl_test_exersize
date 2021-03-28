@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import argparse
 import unittest
+import inspect
 
 
 '''user imports for utilities'''
@@ -77,8 +78,11 @@ class MySeleniumTests(unittest.TestCase):
         HP.accept_cookies_in_home_page(self.driver_web)
         HP.click_leadrership_link_in_home_page(self.driver_web)
         list_of_board_members,found_element = LP.list_the_board_directors(self.driver_web)
+        fn_name = inspect.currentframe().f_code.co_name
+        print("Running the function %s to check if %s is part of %s" %(fn_name,TST_SET.board_of_directors_str,TST_SET.shiv_nadar_str))
         self.assertEqual(list_of_board_members[0].strip(),TST_SET.board_of_directors_str, "Director listing table should have Board of director item")
         self.assertEqual(list_of_board_members[1].strip(), TST_SET.shiv_nadar_str,"Board of director should have Shiv Nadar")
+        print("test passed")
 
         # down load the image of board member
         image_src_path = LP.retrive_image_url_of_the_board_directors(found_element, TST_SET.shiv_nadar_str)

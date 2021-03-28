@@ -10,7 +10,7 @@ def calculate_area_of_traingle(side_a=-1,side_b=-1,side_c=-1):
     try:
         #comparison can only happen if input var is int or float
         if(side_a <= 0 or side_b <= 0 or side_c <= 0 ):
-            print("side should not be greater than 0")
+            print("side should be greater than 0")
             return -1
     except:
         print("side is not a valid data type , not integer or float")

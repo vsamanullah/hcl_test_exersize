@@ -4,6 +4,7 @@ import sys
 import os
 import io
 from contextlib import redirect_stdout
+import inspect
 
 # adding user import paths
 program_path = os.path.dirname(os.path.abspath(__file__))
@@ -30,8 +31,10 @@ class Test_Football_Team_data(unittest.TestCase):
 
     # generic test function that calls the implementation and checks the expected out put
     def test_foot_team_with_least_goal_diff(self):
+        fn_name = inspect.currentframe().f_code.co_name
+        print("running the function %s with parameters %s %s" %(fn_name,self.test_file_name,self.expected_out_put))
         self.assertEqual(call_the_function(process_football_team_data.print_team_least_diff_in_football_goals, self.test_file_name), self.expected_out_put)
-
+        print("test passed")
 
 
 if __name__ == '__main__':

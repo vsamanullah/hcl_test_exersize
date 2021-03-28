@@ -2,7 +2,7 @@
 import unittest
 import sys
 import os
-import io
+import inspect
 from contextlib import redirect_stdout
 
 # adding user import paths
@@ -31,10 +31,14 @@ class Test_Area_Of_Traingle(unittest.TestCase):
 
     # to test : invalid test cases
     def test_area_of_traingle_function_invalid_case(self):
+        fn_name = inspect.currentframe().f_code.co_name
+        print("running the test %s with parameters sides %s %s %s"  %(fn_name,str(self.side_a),str(self.side_b),str(self.side_c)))
         self.assertEqual(AT.calculate_area_of_traingle(self.side_a,self.side_b,self.side_c), self.expected_output)
 
     # to test : valid test cases
     def test_area_of_traingle_function_valid_case(self):
+        fn_name = inspect.currentframe().f_code.co_name
+        print("running the test %s with parameters sides %s %s %s" % (fn_name, str(self.side_a), str(self.side_b), str(self.side_c)))
         self.assertEqual(float_equal(AT.calculate_area_of_traingle(self.side_a,self.side_b,self.side_c),self.expected_output),1)
 
 

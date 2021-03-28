@@ -4,6 +4,7 @@ import sys
 import os
 import io
 from contextlib import redirect_stdout
+import inspect
 
 # adding user import paths
 program_path = os.path.dirname(os.path.abspath(__file__))
@@ -28,12 +29,17 @@ class Test_Print_Numbers(unittest.TestCase):
 
     # Test for valid case
     def test_print_numbers_true(self):
-        print(self.param)
+        fn_name = inspect.currentframe().f_code.co_name
+        print("running the function %s with parameters %s " %(fn_name,self.param))
         self.assertEqual(call_the_function(PN.print_numbers), self.param)
+        print("test passed")
 
     # Test for invalid case
     def test_print_numbers_false(self):
+        fn_name = inspect.currentframe().f_code.co_name
+        print("running the function %s with parameters %s " %(fn_name,self.param))
         self.assertNotEqual(call_the_function(PN.print_numbers), self.param)
+        print("test passed")
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
