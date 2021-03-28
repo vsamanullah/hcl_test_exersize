@@ -41,7 +41,6 @@ steps:
   
   
  # Running test for hcl web tests
-- script: |
-      #cd hcl_portal && python RunTestSuite.py
-      echo %ChromeWebDriver% 
+- script: |      
+      dir "%ChromeWebDriver%"
   
