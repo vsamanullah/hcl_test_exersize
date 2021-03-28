@@ -26,7 +26,15 @@ steps:
     pip install selenium 
   displayName: 'Install dependencies'
   
+ # Running test for print numbers
 - script: |
       cd print_numbers/tst && python print_number_test.py
 
-
+ # Running test for area of traingle
+- script: |
+      cd area_of_traingle/tst && area_of_traingle_test.py
+ 
+  # Running test for https://github.com/phil-rice/datakata.git
+- script: |
+      cd phil_rice_datakata/tst && foot_ball_team_test.py
+  
